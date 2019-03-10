@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Playlist extends Model
 {
-    //
+    protected $fillable = ['title', 'body',];
+    public function track()
+    {
+        return $this->belongsToMany(Track::class);
+    }
 }
