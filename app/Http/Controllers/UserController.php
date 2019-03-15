@@ -56,6 +56,7 @@ class UserController extends Controller
     }
 
     /**
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout()
@@ -67,7 +68,7 @@ class UserController extends Controller
     /**
      * details api
      *
-     * @return \Illuminate\Http\Response
+     * @return UserResource
      */
     public function details()
     {

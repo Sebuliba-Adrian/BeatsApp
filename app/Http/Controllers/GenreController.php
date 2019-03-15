@@ -15,7 +15,6 @@ class GenreController extends Controller
     public function index()
     {
         return Genre::all();
-
     }
 
     /**
@@ -56,6 +55,5 @@ class GenreController extends Controller
             ["success" => $isGenreDeleted, "message" => $isGenreDeleted ? "The genre has been deleted successfully" : "Failed deleting genre"],
             $isGenreDeleted ? 201 : 400
         );
-
     }
 }

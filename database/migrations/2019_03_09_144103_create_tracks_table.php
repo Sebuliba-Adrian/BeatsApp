@@ -13,15 +13,18 @@ class CreateTracksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tracks', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('file_url');
-            $table->integer('album_id')->unsigned();
-            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');;
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        Schema::create(
+            'tracks',
+            function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('title');
+                $table->string('file_url');
+                $table->integer('album_id')->unsigned();
+                $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+                $table->timestamps();
+                $table->softDeletes();
+            }
+        );
     }
 
     /**

@@ -13,9 +13,12 @@ class AddForeignKeyRelationshipToPlaylistsTable extends Migration
      */
     public function up()
     {
-        Schema::table('playlists', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
+        Schema::table(
+            'playlists',
+            function (Blueprint $table) {
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            }
+        );
     }
 
     /**
@@ -25,8 +28,10 @@ class AddForeignKeyRelationshipToPlaylistsTable extends Migration
      */
     public function down()
     {
-        Schema::table('playlists', function (Blueprint $table) {
-            //
-        });
+        Schema::table(
+            'playlists',
+            function (Blueprint $table) {
+            }
+        );
     }
 }

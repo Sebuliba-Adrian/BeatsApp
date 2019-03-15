@@ -26,7 +26,6 @@ class Track extends Model
 
     public function scopeOfAlbum($query, $albumId)
     {
-
         return $query->where("album_id", $albumId);
     }
 }

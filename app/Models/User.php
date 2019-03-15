@@ -52,13 +52,12 @@ class User extends Authenticatable
 
     /**
      * @param Album $album
+     *
      * @return false|\Illuminate\Database\Eloquent\Model
      */
     public function createAlbum(Album $album)
     {
-
         return $this->albums()->save($album);
-
     }
 
     /**
@@ -72,6 +71,7 @@ class User extends Authenticatable
     /**
      * @param $data
      * @param $albumId
+     * 
      * @return bool|int
      */
     public function updateAlbum($data, $album)
@@ -81,6 +81,7 @@ class User extends Authenticatable
 
     /**
      * @param $id
+     *
      * @return array
      */
     public function deleteAlbum($album)
@@ -91,20 +92,23 @@ class User extends Authenticatable
     /**
      * @param Track $track
      * @param $$album
+     *
      * @return mixed
      */
     public function addTrack(Track $track, $album)
     {
-        return $this->albums()->find($album->id)->tracks()->create([
+        return $this->albums()->find($album->id)->tracks()->create(
+            [
             "title" => $track->title,
-            "file_url" => $track->file_url
-        ]);
+            "file_url" => $track->file_url]
+        );
     }
 
     /**
      * @param $data
      * @param $album
      * @param $track
+     *
      * @return mixed
      */
     public function updateTrack($data, $album, $track)
@@ -115,6 +119,7 @@ class User extends Authenticatable
     /**
      * @param $album
      * @param $track
+     *
      * @return mixed
      */
     public function deleteTrack($album, $track)
@@ -126,6 +131,7 @@ class User extends Authenticatable
      * @param $album
      * @param $track
      * @param $comment
+     *
      * @return mixed
      */
     public function addComment($album, $track, $comment)
@@ -138,6 +144,7 @@ class User extends Authenticatable
      * @param $album
      * @param $track
      * @param $comment
+     *
      * @return mixed
      */
     public function updateComment($newComment, $album, $track, $comment)
@@ -159,6 +166,7 @@ class User extends Authenticatable
      * @param $album
      * @param $track
      * @param $comment
+     *
      * @return mixed
      */
     public function deleteComment($album, $track, $comment)
@@ -186,6 +194,7 @@ class User extends Authenticatable
     /**
      * @param $playlist
      * @param $track
+     *
      * @return bool
      */
     public function addTrackToPlaylist($playlist, $track)

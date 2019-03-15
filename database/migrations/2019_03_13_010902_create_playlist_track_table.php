@@ -13,13 +13,16 @@ class CreatePlaylistTrackTable extends Migration
      */
     public function up()
     {
-        Schema::create('playlist_track', function (Blueprint $table) {
-            $table->integer('playlist_id')->unsigned()->index();
-            $table->foreign('playlist_id')->references('id')->on('playlists')->onDelete('cascade');
-            $table->integer('track_id')->unsigned()->index();
-            $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');
-            $table->primary(['playlist_id', 'track_id']);
-        });
+        Schema::create(
+            'playlist_track',
+            function (Blueprint $table) {
+                $table->integer('playlist_id')->unsigned()->index();
+                $table->foreign('playlist_id')->references('id')->on('playlists')->onDelete('cascade');
+                $table->integer('track_id')->unsigned()->index();
+                $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');
+                $table->primary(['playlist_id', 'track_id']);
+            }
+        );
     }
 
     /**

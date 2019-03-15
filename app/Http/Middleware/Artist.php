@@ -13,6 +13,7 @@ class Artist
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
+     *
      * @return mixed
      * @throws AuthorizationException
      */

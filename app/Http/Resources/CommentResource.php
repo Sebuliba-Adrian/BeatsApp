@@ -10,6 +10,7 @@ class CommentResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function toArray($request)
@@ -19,6 +20,6 @@ class CommentResource extends JsonResource
             'comment' => $this->title,
             'track' => $this->track,
             'commenter' => $this->user,
-        ];;
+        ];
     }
 }

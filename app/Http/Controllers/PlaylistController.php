@@ -55,7 +55,5 @@ class PlaylistController extends Controller
     {
         $playListWithTrack = auth()->user()->addTrackToPlaylist($playlist, $track);
         return Response::json(["message" => is_null($playListWithTrack) ? "success" : "error", "data" => is_null($playListWithTrack) ? "Track added to playlist" : "Track already exists in the playlist"]);
-
     }
-
 }

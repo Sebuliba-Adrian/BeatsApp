@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Validation\ValidationException;
 
 class CommentController extends Controller
 {
@@ -25,8 +26,12 @@ class CommentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Album $album
+     * @param Track $track
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @throws ValidationException
      */
     public function store(Request $request, Album $album, Track $track)
     {
@@ -36,20 +41,19 @@ class CommentController extends Controller
         $newComment = auth()->user()->addComment($album, $track, $comment);
 
         return Response::json(["message" => $newComment ? "Comment created successfully" : "Failed to create comment", "data" => $newComment ? $newComment : ""], $newComment ? 201 : 400);
-
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Comment $comment
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Album $album, Track $track, Comment $comment)
     {
         $comment = auth()->user()->showComments($album, $track, $comment);
         return Response::json(["message" => $comment ? "success" : "error", "data" => $comment ? $comment : ""], $comment ? 200 : 400);
-
     }
 
 
@@ -58,6 +62,7 @@ class CommentController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \App\Models\Comment $comment
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Album $album, Track $track, Comment $comment)
@@ -69,8 +74,11 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Album $album
+     * @param Track $track
      * @param  \App\Models\Comment $comment
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Album $album, Track $track, Comment $comment)
     {

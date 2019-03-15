@@ -80,7 +80,6 @@ class TrackController extends Controller
         $isTrackUpdated = auth()->user()->updateTrack($request->all(), $album, $track);
 
         return Response::json(["message" => $isTrackUpdated ? "Track updated successfully" : "Failed to delete track", "data" => $isTrackUpdated ? $track : ""], $isTrackUpdated ? 200 : 400);
-
     }
 
     /**
@@ -93,6 +92,5 @@ class TrackController extends Controller
     {
         $isAlbumDeleted = auth()->user()->deleteTrack($album, $track);
         return Response::json(["message" => $isAlbumDeleted ? "Track deleted successfully" : "Failed to delete Track"], $isAlbumDeleted ? 200 : 400);
-
     }
 }
