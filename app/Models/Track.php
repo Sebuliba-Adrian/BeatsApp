@@ -6,7 +6,7 @@ class Track extends Model
 {
     public static $rules = [
         "title" => "required|sting|min:2|unique:tracks",
-        'file_url' => 'required|mimes:audio/mpeg,mp4,mp3,avi,mkv,dvd',
+        'file_url' => 'required|mimes:mpga,mp4,wav,avi,mkv,dvd',
     ];
 
     public function album()
