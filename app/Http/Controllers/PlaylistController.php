@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Playlist;
-use Illuminate\Http\Request;
+use App\Http\Resources\PlaylistResource;
+use App\Models\Playlist;
+use App\Models\Track;
+use Illuminate\Support\Facades\Response;
 
 class PlaylistController extends Controller
 {
@@ -14,72 +16,46 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return PlaylistResource::collection(Playlist::with('tracks')->paginate());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Playlist::$rules);
+        $newPlayList = auth()->user()->createPlaylist(new Playlist($request->all()));
+
+        return Response::json(["message" => "success", "data" => $newPlayList]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Playlist  $playlist
+     * @param  \App\Models\Playlist $playlist
      * @return \Illuminate\Http\Response
      */
     public function show(Playlist $playlist)
     {
-        //
+        return new PlaylistResource($playlist);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
-     * @param  \App\Playlist  $playlist
+     * @param  \App\Models\Playlist $playlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Playlist $playlist)
+    public function add(Playlist $playlist, Track $track)
     {
-        //
+        $playListWithTrack = auth()->user()->addTrackToPlaylist($playlist, $track);
+        return Response::json(["message" => is_null($playListWithTrack) ? "success" : "error", "data" => is_null($playListWithTrack) ? "Track added to playlist" : "Track already exists in the playlist"]);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Playlist  $playlist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Playlist $playlist)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Playlist  $playlist
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Playlist $playlist)
-    {
-        //
-    }
 }

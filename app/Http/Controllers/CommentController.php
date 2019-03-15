@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
+use App\Models\Album;
+use App\Models\Comment;
+use App\Models\Track;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class CommentController extends Controller
 {
@@ -12,74 +15,66 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Album $album, Track $track)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $comments = auth()->user()->listComments($album, $track);
+        return Response::json(["message" => $comments ? "success" : "error", "data" => $comments ? $comments : ""], $comments ? 200 : 400);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request, Album $album, Track $track)
     {
-        //
+        $this->validate($request, Comment::$rules);
+        $comment = new Comment($request->all());
+        $comment->user_id = auth()->user()->id;
+        $newComment = auth()->user()->addComment($album, $track, $comment);
+
+        return Response::json(["message" => $newComment ? "Comment created successfully" : "Failed to create comment", "data" => $newComment ? $newComment : ""], $newComment ? 201 : 400);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Comment  $comment
+     * @param  \App\Models\Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show(Album $album, Track $track, Comment $comment)
     {
-        //
+        $comment = auth()->user()->showComments($album, $track, $comment);
+        return Response::json(["message" => $comment ? "success" : "error", "data" => $comment ? $comment : ""], $comment ? 200 : 400);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Album $album, Track $track, Comment $comment)
     {
-        //
+        $isCommentUpdated = auth()->user()->updateComment($request->all(), $album, $track, $comment);
+        return Response::json(["message" => $isCommentUpdated ? "The comment has been updated" : "Failed to update comment"], $isCommentUpdated ? 200 : 400);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Comment  $comment
+     * @param  \App\Models\Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Album $album, Track $track, Comment $comment)
     {
-        //
+        $isCommentDeleted = auth()->user()->deleteComment($album, $track, $comment);
+        return Response::json(["message" => $isCommentDeleted ? "The comment has been deleted" : "Failed to delete comment"], $isCommentDeleted ? 200 : 400);
     }
 }

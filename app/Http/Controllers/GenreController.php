@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Genre;
-use Illuminate\Http\Request;
+use App\Models\Genre;
+use Illuminate\Validation\ValidationException;
 
 class GenreController extends Controller
 {
@@ -14,72 +14,48 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
-    }
+        return Genre::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, Genre::$rules);
+        if (!auth()->user()->is_artist) {
+            return response()->json(["message" => "You are not allowed to do this"]);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Genre  $genre
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Genre $genre)
-    {
-        //
-    }
+        $genre = new Genre($request->all());
+        $genre->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Genre  $genre
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Genre $genre)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Genre  $genre
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Genre $genre)
-    {
-        //
+        return response()->json(
+            ["message" => "The genre has been created successfully",
+                "data" => $genre],
+            201
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Genre  $genre
+     * @param  \App\Models\Genre $genre
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Genre $genre)
     {
-        //
+        $isGenreDeleted = $genre->delete();
+        return response()->json(
+            ["success" => $isGenreDeleted, "message" => $isGenreDeleted ? "The genre has been deleted successfully" : "Failed deleting genre"],
+            $isGenreDeleted ? 201 : 400
+        );
+
     }
 }

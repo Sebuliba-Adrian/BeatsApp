@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -12,12 +13,12 @@ class UserController extends Controller
 {
     public $successStatus = 200;
 
-    /** 
-     * login api 
-     * 
-     * @return \Illuminate\Http\Response 
+    /**
+     * login api
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function signIn()
+    public function login()
     {
         $credentials = [
             'email' => request('email'),
@@ -31,25 +32,18 @@ class UserController extends Controller
         }
 
         return response()->json(['error' => 'Unauthorised'], 401);
-}
-    /** 
-     * Register api 
-     * 
-     * @return \Illuminate\Http\Response 
+    }
+
+    /**
+     * Register api
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 401);
-        }
-
+        $this->validate($request->all(), User::$rules);
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
 
@@ -57,16 +51,27 @@ class UserController extends Controller
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
 
-        return response()->json(['success' => $success]);
- 
+        unset($user->password);
+
+        return response()->json(['success' => true, 'user' => $user], 200);
     }
-    /** 
-     * details api 
-     * 
-     * @return \Illuminate\Http\Response 
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function details(Request $request)
+    public function logout()
     {
-        return response()->json(['success' => Auth::user()]);
-    } 
+        Auth::logout();
+        return response()->json(['success' => true, 'message' => "Successfully logged out"], 200);
+    }
+
+    /**
+     * details api
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function details()
+    {
+        return new UserResource(auth()->user());
+    }
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Album;
+use App\Http\Resources\AlbumResource;
+use App\Models\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
 
 class AlbumController extends Controller
 {
@@ -14,72 +17,72 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return AlbumResource::collection(Album::with(['genre', 'artist'])->paginate(25));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
+
     {
-        //
+        $this->validate($request, Album::$rules);
+
+        if (!auth()->user()->is_artist) {
+            return response()->json(["message" => "You are not allowed to do this"]);
+        }
+
+        $album = auth()->user()->createAlbum(new Album($request->all()));
+
+        return response()->json(
+            ["message" => "The album has been created successfully",
+                "data" => $album],
+            201
+        );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Album  $album
+     * @param  \App\Models\Album $album
      * @return \Illuminate\Http\Response
      */
     public function show(Album $album)
     {
-        //
-    }
+        return Response::json($album, 200);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Album  $album
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Album $album)
-    {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Album  $album
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Album $album
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Album $album)
     {
-        //
+        $isAlbumUpdated = auth()->user()->updateAlbum($request->all(), $album);
+        return Response::json(["message" => $isAlbumUpdated ? "The album has been updated successfully" : "couldn't update album", "data" => $isAlbumUpdated ? $album : ""],
+            $isAlbumUpdated ? 200 : 400
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Album  $album
+     * @param  \App\Models\Album $album
      * @return \Illuminate\Http\Response
      */
     public function destroy(Album $album)
     {
-        //
+        $isAlbumDeleted = auth()->user()->deleteAlbum($album);
+
+        return Response::json(["message" => $isAlbumDeleted ? "The album has been deleted" : "Failed to delete album"], $isAlbumDeleted ? 200 : 400);
+
     }
 }
