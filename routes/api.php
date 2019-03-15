@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('playlists', 'PlaylistController@index'); // create playlist here
     Route::post('playlists', 'PlaylistController@store'); // create playlist here
     Route::post('playlists/{playlist}/tracks/{track}', 'PlaylistController@add');// add track to  playlist here
-    Route::get('playlists/{playlist}/tracks', 'PlaylistController@show')->middleware('is_artist'); //display play list here
+    Route::get('playlists/{playlist}/tracks', 'PlaylistController@show'); //display play list here
 
     Route::post('albums/{album}/tracks/{track}/comments', 'CommentController@store');
     Route::get('albums/{album}/tracks/{track}/comments', 'CommentController@index');
