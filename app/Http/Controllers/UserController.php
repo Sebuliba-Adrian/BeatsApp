@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -43,7 +42,7 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
-        $this->validate($request->all(), User::$rules);
+        $this->validate($request, User::$rules);
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
 

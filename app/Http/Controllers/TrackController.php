@@ -29,7 +29,7 @@ class TrackController extends Controller
      */
     public function store(Request $request, Album $album)
     {
-        $this->validate(Track::$rules);
+        $this->validate($request, Track::$rules);
         $track = new Track($request->all());
         if ($request->hasFile('file_url')) {
             $image = $request->file('file_url');
