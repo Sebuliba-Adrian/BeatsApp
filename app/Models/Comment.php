@@ -1,13 +1,14 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class Comment extends Model
 {
-    protected $fillable = ['comment', 'track_id', 'user_id',];
     //
+    public static $rules = [
+        'comment' => 'required|string|min:2',
+    ];
+
     public function track()
     {
         return $this->belongsTo(Track::class);

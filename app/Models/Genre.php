@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class Genre extends Model
 {
-    protected $fillable = ['name',];
+    public static $rules = [
+        'name' => 'required|string|min:2|unique:genres'
+    ];
+
     public function albums()
     {
         return $this->hasMany(Album::class);

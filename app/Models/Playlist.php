@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class Playlist extends Model
 {
-    protected $fillable = ['title', 'body',];
-    public function track()
+    public static $rules = [
+        'title' => 'required|string|min:2|unique:playlists',
+        'body' => 'required|string|min:2',
+    ];
+
+    public function tracks()
     {
         return $this->belongsToMany(Track::class);
     }

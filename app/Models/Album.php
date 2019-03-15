@@ -1,20 +1,27 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class Album extends Model
 {
-    protected $fillable = ['artist_id', 'genre_id', 'title', 'release_date',];
+    public static $rules = [
+        'title' => 'required|string|min:2|unique:albums',
+        'genre_id' => 'required',
+        'release_date' => 'required',
+    ];
 
-    public function artist()
+    public function user()
     {
-        return $this->belongsTo(Artist::class);
+        return $this->belongsTo(User::class);
     }
 
     public function genre()
     {
         return $this->belongsTo(Genre::class);
+    }
+
+    public function tracks()
+    {
+        return $this->hasMany(Track::class);
     }
 }
