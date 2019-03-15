@@ -16,8 +16,8 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return AlbumResource::collection(Album::with(['genre', 'artist'])->paginate(25));
+    { 
+        return AlbumResource::collection(Album::with(['genre', 'user'])->paginate(25));
     }
 
     /**
