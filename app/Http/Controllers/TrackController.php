@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TrackResource;
 use App\Models\Album;
 use App\Models\Track;
 use Illuminate\Http\Request;
@@ -39,17 +40,6 @@ class TrackController extends Controller
             $track->file_url = $file_url;
         }
         $newAddedTrack = auth()->user()->addTrack($track, $album);
-        if (!$newAddedTrack instanceof Track) {
-            $response = response()->json(
-                [
-                    "error" => [
-                        "message" => "The track could not be created."
-                    ]],
-                400
-            );
-            return $response;
-        }
-
         return response()->json(
             ["message" => "The track  has been created successfully",
                 "data" => $newAddedTrack],
@@ -65,7 +55,7 @@ class TrackController extends Controller
      */
     public function show(Track $track)
     {
-        return TrackResource($track);
+        return new TrackResource($track);
     }
 
     /**
@@ -79,7 +69,7 @@ class TrackController extends Controller
     {
         $isTrackUpdated = auth()->user()->updateTrack($request->all(), $album, $track);
 
-        return Response::json(["message" => $isTrackUpdated ? "Track updated successfully" : "Failed to delete track", "data" => $isTrackUpdated ? $track : ""], $isTrackUpdated ? 200 : 400);
+        return Response::json(["message" => $isTrackUpdated ? "Track updated successfully" : "Failed to update track", "data" => $isTrackUpdated ? $track : ""], $isTrackUpdated ? 201 : 400);
     }
 
     /**
@@ -91,6 +81,6 @@ class TrackController extends Controller
     public function destroy(Album $album, Track $track)
     {
         $isAlbumDeleted = auth()->user()->deleteTrack($album, $track);
-        return Response::json(["message" => $isAlbumDeleted ? "Track deleted successfully" : "Failed to delete Track"], $isAlbumDeleted ? 200 : 400);
+        return Response::json(["message" => $isAlbumDeleted ? "Track deleted successfully" : "Failed to delete track"], $isAlbumDeleted ? 200 : 400);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GenreResource;
 use App\Models\Genre;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class GenreController extends Controller
@@ -14,7 +16,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return Genre::all();
+        return GenreResource::collection(Genre::all());
     }
 
     /**
@@ -27,10 +29,6 @@ class GenreController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Genre::$rules);
-        if (!auth()->user()->is_artist) {
-            return response()->json(["message" => "You are not allowed to do this"]);
-        }
-
         $genre = new Genre($request->all());
         $genre->save();
 
@@ -53,7 +51,7 @@ class GenreController extends Controller
         $isGenreDeleted = $genre->delete();
         return response()->json(
             ["success" => $isGenreDeleted, "message" => $isGenreDeleted ? "The genre has been deleted successfully" : "Failed deleting genre"],
-            $isGenreDeleted ? 201 : 400
+            $isGenreDeleted ? 200 : 400
         );
     }
 }

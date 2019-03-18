@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable;
 
     public static $rules = [
         'name' => 'required|unique:users',
         'password' => 'required',
         'email' => 'required|email|unique:users',
         'c_password' => 'required|same:password',
-        'is_artist' => 'required',
     ];
     /**
      * The attributes that are mass assignable.
@@ -71,7 +70,7 @@ class User extends Authenticatable
     /**
      * @param $data
      * @param $albumId
-     * 
+     *
      * @return bool|int
      */
     public function updateAlbum($data, $album)
@@ -203,5 +202,25 @@ class User extends Authenticatable
             return false;
         }
         return $this->playlists()->find($playlist->id)->tracks()->attach($track);
+    }
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

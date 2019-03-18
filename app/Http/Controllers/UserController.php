@@ -6,31 +6,38 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Passport;
+use Tymon\JWTAuth\JWTAuth;
 use Validator;
 
 class UserController extends Controller
 {
     public $successStatus = 200;
 
+    public function __construct(JWTAuth $jwt)
+    {
+        $this->jwt = $jwt;
+    }
+
     /**
      * login api
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = [
-            'email' => request('email'),
-            'password' => request('password')
-        ];
+        $credentials = $request->only(['email', 'password']);
 
-        if (Auth::attempt($credentials)) {
-            $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
-
-            return response()->json(['success' => $success]);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return response()->json(['error' => 'Unauthorised'], 401);
+        return response()->json(
+            [
+            'success' => true,
+            'access_token' => $token,
+            'expires_in' => auth()->factory()->getTTL() * 60]
+        );
     }
 
     /**
@@ -47,21 +54,20 @@ class UserController extends Controller
         $input['password'] = bcrypt($input['password']);
 
         $user = User::create($input);
-        $success['token'] = $user->createToken('MyApp')->accessToken;
-        $success['name'] = $user->name;
 
         unset($user->password);
 
-        return response()->json(['success' => true, 'user' => $user], 200);
+        return response()->json(['success' => true, 'data' => $user], 201);
     }
 
     /**
      *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Tymon\JWTAuth\Exceptions\JWTException
      */
     public function logout()
     {
-        Auth::logout();
+        $this->jwt->parseToken()->invalidate();
         return response()->json(['success' => true, 'message' => "Successfully logged out"], 200);
     }
 

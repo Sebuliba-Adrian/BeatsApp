@@ -68,7 +68,7 @@ class CommentController extends Controller
     public function update(Request $request, Album $album, Track $track, Comment $comment)
     {
         $isCommentUpdated = auth()->user()->updateComment($request->all(), $album, $track, $comment);
-        return Response::json(["message" => $isCommentUpdated ? "The comment has been updated" : "Failed to update comment"], $isCommentUpdated ? 200 : 400);
+        return Response::json(["message" => $isCommentUpdated ? "The comment has been updated" : "Failed to update comment"], $isCommentUpdated ? 201 : 400);
     }
 
     /**

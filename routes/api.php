@@ -19,7 +19,7 @@ Route::post('logout', 'UserController@logout');
 Route::group(
     ['middleware' => 'auth:api'],
     function () {
-        Route::post('profile', 'UserController@details');
+        Route::get('profile', 'UserController@details');
 
         Route::post('genres', 'GenreController@store')->middleware('is_artist');
         Route::get('genres', 'GenreController@index');
@@ -42,13 +42,14 @@ Route::group(
 
 
         Route::get('playlists', 'PlaylistController@index');
+        Route::post('playlists', 'PlaylistController@store');
         Route::post('playlists/{playlist}/tracks/{track}', 'PlaylistController@add');
         Route::get('playlists/{playlist}/tracks', 'PlaylistController@show');
 
         Route::post('albums/{album}/tracks/{track}/comments', 'CommentController@store');
         Route::get('albums/{album}/tracks/{track}/comments', 'CommentController@index');
         Route::get('albums/{album}/tracks/{track}/comments/{comment}', 'CommentController@show');
-        Route::delete('albums/{album}/tracks/{track}/comments/{comment}', 'CommentController@destroy')->middleware('is_artist');
+        Route::delete('albums/{album}/tracks/{track}/comments/{comment}', 'CommentController@destroy');
         Route::patch('albums/{album}/tracks/{track}/comments/{comment}', 'CommentController@update');
     }
 );

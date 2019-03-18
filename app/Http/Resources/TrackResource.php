@@ -19,7 +19,6 @@ class TrackResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'album' => $this->album,
-            'playlists' => $this->playlists,
             'track_url' => $this->file_url,
             'created_at' => (string)$this->created_at,
             'updated_at' => (string)$this->updated_at,

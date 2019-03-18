@@ -33,10 +33,6 @@ class AlbumController extends Controller
     {
         $this->validate($request, Album::$rules);
 
-        if (!auth()->user()->is_artist) {
-            return response()->json(["message" => "You are not allowed to do this"]);
-        }
-
         $album = auth()->user()->createAlbum(new Album($request->all()));
 
         return response()->json(

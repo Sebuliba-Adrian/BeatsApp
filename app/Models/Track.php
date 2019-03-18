@@ -5,7 +5,7 @@ namespace App\Models;
 class Track extends Model
 {
     public static $rules = [
-        "title" => "required|sting|min:2|unique:tracks",
+        "title" => "required|string|min:2|unique:tracks",
         'file_url' => 'required|mimes:mpga,mp4,wav,avi,mkv,dvd',
     ];
 
