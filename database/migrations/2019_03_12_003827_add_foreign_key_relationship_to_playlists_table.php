@@ -16,7 +16,7 @@ class AddForeignKeyRelationshipToPlaylistsTable extends Migration
         Schema::table(
             'playlists',
             function (Blueprint $table) {
-                $table->foreign('user_id');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             }
         );
     }

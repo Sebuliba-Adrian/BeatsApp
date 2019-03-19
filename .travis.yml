@@ -11,14 +11,8 @@ before_script:
   - php artisan jwt:secret --force
   - php artisan migrate
 
-before_install:
-  - mysql -e 'CREATE DATABASE realworld_test;'
-
 script:
   - composer test
-
-services:
-  - mysql
 
 notifications:
   email: false

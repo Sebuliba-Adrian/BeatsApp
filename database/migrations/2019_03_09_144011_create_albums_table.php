@@ -21,8 +21,8 @@ class CreateAlbumsTable extends Migration
                 $table->integer('genre_id')->unsigned();
                 $table->string('title');
                 $table->date('release_date');
-                $table->foreign('user_id');
-                $table->foreign('genre_id');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
                 $table->timestamps();
             }
         );

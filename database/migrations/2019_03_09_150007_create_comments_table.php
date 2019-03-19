@@ -20,7 +20,8 @@ class CreateCommentsTable extends Migration
                 $table->text('comment');
                 $table->unsignedInteger('track_id');
                 $table->unsignedInteger('user_id');
-                $table->foreign('track_id');
+                $table->foreign('track_id')->references('id')
+                    ->on('tracks')->onDelete('cascade');
                 $table->timestamps();
             }
         );
