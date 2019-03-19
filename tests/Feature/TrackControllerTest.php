@@ -152,4 +152,28 @@ class TrackControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertJson(["message"=>"Track deleted successfully"]);
     }
+
+
+    public function test_user_cannot_delete_track()
+    {
+        $token = $this->authenticate();
+        $user = JWTAuth::setToken($token)->toUser();
+        $genre=factory(Genre::class)->create(['name'=>'pop']);
+        $album = factory(Album::class)->create(['title'=>"pistols","genre_id" => $genre->id,"user_id"=>$user->id, "release_date"=>'2019-03-11 01:04:15',]);
+        $track = factory(Track::class)->create(['title'=>"anywhere is","file_url" => "http://filefactory.com/file.dat","album_id"=>$album->id]);
+
+        $response = $this->withHeaders(
+            [
+                'Authorization' => 'Bearer '. $token,
+                'Content-Type'  => 'application/json'
+            ]
+        )->json(
+            'PUT',
+            "/api/albums/$album->id/tracks/$track->id"
+        );
+        $response->assertStatus(405);
+        //$response->assertJson(["message"=>"Track deleted successfully"]);
+    }
+
+
 }

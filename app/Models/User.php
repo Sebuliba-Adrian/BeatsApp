@@ -152,7 +152,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function listComments($album, $track)
-    {
+    {    $comments = $this->comments()->get();
         return $this->albums()->find($album->id)->tracks()->find($track->id)->comments()->get();
     }
 

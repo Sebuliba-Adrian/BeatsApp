@@ -51,7 +51,6 @@ class Handler extends ExceptionHandler
         if (env('APP_DEBUG')) {
             return parent::render($request, $exception);
         }
-
         if ($request->expectsJson()) {
             return $this->apiException($request, $exception);
         }
