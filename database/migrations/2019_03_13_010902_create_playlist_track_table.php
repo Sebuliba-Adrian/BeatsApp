@@ -17,9 +17,9 @@ class CreatePlaylistTrackTable extends Migration
             'playlist_track',
             function (Blueprint $table) {
                 $table->integer('playlist_id')->unsigned()->index();
-                $table->foreign('playlist_id')->references('id')->on('playlists')->onDelete('cascade');
+                $table->foreign('playlist_id')->references('id');
                 $table->integer('track_id')->unsigned()->index();
-                $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');
+                $table->foreign('track_id')->references('id');
                 $table->primary(['playlist_id', 'track_id']);
             }
         );

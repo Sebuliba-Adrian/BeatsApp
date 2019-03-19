@@ -20,7 +20,7 @@ class CreateTracksTable extends Migration
                 $table->string('title');
                 $table->string('file_url');
                 $table->integer('album_id')->unsigned();
-                $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+                $table->foreign('album_id');
                 $table->timestamps();
                 $table->softDeletes();
             }
