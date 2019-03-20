@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
+    "content-hash": "8eef6e681719226b0da48954624b1083",
     "packages": [
+        {
+            "name": "defuse/php-encryption",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/defuse/php-encryption.git",
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/0f407c43b953d571421e0020ba92082ed5fb7620",
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "paragonie/random_compat": ">= 2",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^2.0|^3.0|^4.0",
+                "phpunit/phpunit": "^4|^5"
+            },
+            "bin": [
+                "bin/generate-defuse-key"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Defuse\\Crypto\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Hornby",
+                    "email": "taylor@defuse.ca",
+                    "homepage": "https://defuse.ca/"
+                },
+                {
+                    "name": "Scott Arciszewski",
+                    "email": "info@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "Secure PHP Encryption Library",
+            "keywords": [
+                "aes",
+                "authenticated encryption",
+                "cipher",
+                "crypto",
+                "cryptography",
+                "encrypt",
+                "encryption",
+                "openssl",
+                "security",
+                "symmetric key cryptography"
+            ],
+            "time": "2018-07-24T23:27:56+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -159,6 +222,72 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "dompdf/dompdf",
+            "version": "v0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "75f13c700009be21a1965dc2c5b68a8708c22ba2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "reference": "75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "phenx/php-font-lib": "0.5.*",
+                "phenx/php-svg-lib": "0.3.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.5|^6.5",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "suggest": {
+                "ext-gd": "Needed to process images",
+                "ext-gmagick": "Improves image processing performance",
+                "ext-imagick": "Improves image processing performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                },
+                {
+                    "name": "Brian Sweeney",
+                    "email": "eclecticgeek@gmail.com"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "time": "2018-12-14T02:40:31+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -367,6 +496,235 @@
             "time": "2019-01-10T14:06:47+00:00"
         },
         {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2018-04-22T15:46:56+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2018-12-04T20:46:45+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -453,6 +811,71 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "laravel/cashier",
+            "version": "v9.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/cashier.git",
+                "reference": "21c4f3b60307d9583b6e812a918929f828805b73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/cashier/zipball/21c4f3b60307d9583b6e812a918929f828805b73",
+                "reference": "21c4f3b60307d9583b6e812a918929f828805b73",
+                "shasum": ""
+            },
+            "require": {
+                "dompdf/dompdf": "^0.8.0",
+                "ext-json": "*",
+                "illuminate/database": "~5.7.0|~5.8.0",
+                "illuminate/support": "~5.7.0|~5.8.0",
+                "nesbot/carbon": "^1.26.3 || ^2.0",
+                "php": "^7.1.3",
+                "stripe/stripe-php": "~6.0",
+                "symfony/http-kernel": "~4.0"
+            },
+            "require-dev": {
+                "illuminate/http": "~5.7.0|~5.8.0",
+                "illuminate/routing": "~5.7.0|~5.8.0",
+                "illuminate/view": "~5.7.0|~5.8.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Cashier\\CashierServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Cashier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Laravel Cashier provides an expressive, fluent interface to Stripe's subscription billing services.",
+            "keywords": [
+                "billing",
+                "laravel",
+                "stripe"
+            ],
+            "time": "2019-02-12T13:07:43+00:00"
         },
         {
             "name": "laravel/framework",
@@ -602,6 +1025,76 @@
             "time": "2019-03-05T13:51:19+00:00"
         },
         {
+            "name": "laravel/passport",
+            "version": "v7.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/passport.git",
+                "reference": "56330509283d465acaaff842637e539d03bcf9ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/56330509283d465acaaff842637e539d03bcf9ca",
+                "reference": "56330509283d465acaaff842637e539d03bcf9ca",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "firebase/php-jwt": "~3.0|~4.0|~5.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/auth": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/console": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/container": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/contracts": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/encryption": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/http": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0",
+                "league/oauth2-server": "^7.0",
+                "php": ">=7.1",
+                "phpseclib/phpseclib": "^2.0",
+                "symfony/psr-http-message-bridge": "~1.0",
+                "zendframework/zend-diactoros": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Passport\\PassportServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Passport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Passport provides OAuth2 server support to Laravel.",
+            "keywords": [
+                "laravel",
+                "oauth",
+                "passport"
+            ],
+            "time": "2019-02-14T16:29:26+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v1.0.8",
             "source": {
@@ -663,6 +1156,114 @@
                 "psysh"
             ],
             "time": "2018-10-12T19:39:35+00:00"
+        },
+        {
+            "name": "lcobucci/jwt",
+            "version": "3.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/82be04b4753f8b7693b62852b7eab30f97524f9b",
+                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "mdanter/ecc": "~0.3.1",
+                "mikey179/vfsstream": "~1.5",
+                "phpmd/phpmd": "~2.2",
+                "phpunit/php-invoker": "~1.1",
+                "phpunit/phpunit": "~4.5",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "mdanter/ecc": "Required to use Elliptic Curves based algorithms."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Otávio Cobucci Oblonczyk",
+                    "email": "lcobucci@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to work with JSON Web Token and JSON Web Signature",
+            "keywords": [
+                "JWS",
+                "jwt"
+            ],
+            "time": "2018-11-11T12:22:26+00:00"
+        },
+        {
+            "name": "league/event",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/event.git",
+                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/event/zipball/d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
+                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Event\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Event package",
+            "keywords": [
+                "emitter",
+                "event",
+                "listener"
+            ],
+            "time": "2018-11-26T11:52:41+00:00"
         },
         {
             "name": "league/flysystem",
@@ -749,6 +1350,83 @@
             "time": "2019-02-01T08:50:36+00:00"
         },
         {
+            "name": "league/oauth2-server",
+            "version": "7.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-server.git",
+                "reference": "b71f382cd76e3f6905dfc53ef8148b3eebe1fd41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/b71f382cd76e3f6905dfc53ef8148b3eebe1fd41",
+                "reference": "b71f382cd76e3f6905dfc53ef8148b3eebe1fd41",
+                "shasum": ""
+            },
+            "require": {
+                "defuse/php-encryption": "^2.1",
+                "ext-openssl": "*",
+                "lcobucci/jwt": "^3.2.2",
+                "league/event": "^2.1",
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0.1"
+            },
+            "replace": {
+                "league/oauth2server": "*",
+                "lncd/oauth2": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.9.2",
+                "phpstan/phpstan-phpunit": "^0.9.4",
+                "phpstan/phpstan-strict-rules": "^0.9.0",
+                "phpunit/phpunit": "^6.3 || ^7.0",
+                "roave/security-advisories": "dev-master",
+                "zendframework/zend-diactoros": "^1.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andy Millington",
+                    "email": "andrew@noexceptions.io",
+                    "homepage": "https://www.noexceptions.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight and powerful OAuth 2.0 authorization and resource server library with support for all the core specification grants. This library will allow you to secure your API with OAuth and allow your applications users to approve apps that want to access their data from your API.",
+            "homepage": "https://oauth2.thephpleague.com/",
+            "keywords": [
+                "Authentication",
+                "api",
+                "auth",
+                "authorisation",
+                "authorization",
+                "oauth",
+                "oauth 2",
+                "oauth 2.0",
+                "oauth2",
+                "protect",
+                "resource",
+                "secure",
+                "server"
+            ],
+            "time": "2018-11-21T21:42:43+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.24.0",
             "source": {
@@ -825,6 +1503,69 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "namshi/jose",
+            "version": "7.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/namshi/jose.git",
+                "reference": "89a24d7eb3040e285dd5925fcad992378b82bcff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/namshi/jose/zipball/89a24d7eb3040e285dd5925fcad992378b82bcff",
+                "reference": "89a24d7eb3040e285dd5925fcad992378b82bcff",
+                "shasum": ""
+            },
+            "require": {
+                "ext-date": "*",
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-pcre": "*",
+                "ext-spl": "*",
+                "php": ">=5.5",
+                "symfony/polyfill-php56": "^1.0"
+            },
+            "require-dev": {
+                "phpseclib/phpseclib": "^2.0",
+                "phpunit/phpunit": "^4.5|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "suggest": {
+                "ext-openssl": "Allows to use OpenSSL as crypto engine.",
+                "phpseclib/phpseclib": "Allows to use Phpseclib as crypto engine, use version ^2.0."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Namshi\\JOSE\\": "src/Namshi/JOSE/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Nadalin",
+                    "email": "alessandro.nadalin@gmail.com"
+                },
+                {
+                    "name": "Alessandro Cinelli (cirpo)",
+                    "email": "alessandro.cinelli@gmail.com"
+                }
+            ],
+            "description": "JSON Object Signing and Encryption library for PHP.",
+            "keywords": [
+                "JSON Web Signature",
+                "JSON Web Token",
+                "JWS",
+                "json",
+                "jwt",
+                "token"
+            ],
+            "time": "2016-12-05T07:27:31+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1044,6 +1785,83 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-font-lib.git",
+                "reference": "760148820110a1ae0936e5cc35851e25a938bc97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/760148820110a1ae0936e5cc35851e25a938bc97",
+                "reference": "760148820110a1ae0936e5cc35851e25a938bc97",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2017-09-13T16:14:37+00:00"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "v0.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-svg-lib.git",
+                "reference": "ccc46ef6340d4b8a4a68047e68d8501ea961442c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/ccc46ef6340d4b8a4a68047e68d8501ea961442c",
+                "reference": "ccc46ef6340d4b8a4a68047e68d8501ea961442c",
+                "shasum": ""
+            },
+            "require": {
+                "sabberworm/php-css-parser": "8.1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Svg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "time": "2018-06-03T10:10:03+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.5.0",
             "source": {
@@ -1094,6 +1912,98 @@
             "time": "2015-07-25T16:39:46+00:00"
         },
         {
+            "name": "phpseclib/phpseclib",
+            "version": "2.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpseclib/phpseclib.git",
+                "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
+                "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
+                "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
+                "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "phpseclib/bootstrap.php"
+                ],
+                "psr-4": {
+                    "phpseclib\\": "phpseclib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Wigginton",
+                    "email": "terrafrost@php.net",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Patrick Monnerat",
+                    "email": "pm@datasphere.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andreas Fischer",
+                    "email": "bantu@phpbb.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Hans-Jürgen Petrich",
+                    "email": "petrich@tronic-media.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
+            "homepage": "http://phpseclib.sourceforge.net",
+            "keywords": [
+                "BigInteger",
+                "aes",
+                "asn.1",
+                "asn1",
+                "blowfish",
+                "crypto",
+                "cryptography",
+                "encryption",
+                "rsa",
+                "security",
+                "sftp",
+                "signature",
+                "signing",
+                "ssh",
+                "twofish",
+                "x.509",
+                "x509"
+            ],
+            "time": "2019-03-10T16:53:45+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -1141,6 +2051,56 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -1312,6 +2272,46 @@
             "time": "2018-10-13T15:16:03+00:00"
         },
         {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
             "name": "ramsey/uuid",
             "version": "3.8.0",
             "source": {
@@ -1392,6 +2392,106 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "850cbbcbe7fbb155387a151ea562897a67e242ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/850cbbcbe7fbb155387a151ea562897a67e242ef",
+                "reference": "850cbbcbe7fbb155387a151ea562897a67e242ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sabberworm\\CSS": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2016-07-19T19:14:21+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v6.30.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "0d9e2773b1df27d4f0c590b15bed3a1433e0414c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0d9e2773b1df27d4f0c590b15bed3a1433e0414c",
+                "reference": "0d9e2773b1df27d4f0c590b15bed3a1433e0414c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "1.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0",
+                "symfony/process": "~2.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2019-02-27T18:07:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2075,6 +3175,62 @@
             "time": "2018-09-21T13:07:52+00:00"
         },
         {
+            "name": "symfony/polyfill-php56",
+            "version": "v1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php56.git",
+                "reference": "ff208829fe1aa48ab9af356992bb7199fed551af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/ff208829fe1aa48ab9af356992bb7199fed551af",
+                "reference": "ff208829fe1aa48ab9af356992bb7199fed551af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/polyfill-util": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php56\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-09-21T06:26:08+00:00"
+        },
+        {
             "name": "symfony/polyfill-php72",
             "version": "v1.10.0",
             "source": {
@@ -2130,6 +3286,58 @@
             "time": "2018-09-21T13:07:52+00:00"
         },
         {
+            "name": "symfony/polyfill-util",
+            "version": "v1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-util.git",
+                "reference": "3b58903eae668d348a7126f999b0da0f2f93611c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/3b58903eae668d348a7126f999b0da0f2f93611c",
+                "reference": "3b58903eae668d348a7126f999b0da0f2f93611c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Util\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony utilities for portability of PHP codes",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compat",
+                "compatibility",
+                "polyfill",
+                "shim"
+            ],
+            "time": "2018-09-30T16:36:12+00:00"
+        },
+        {
             "name": "symfony/process",
             "version": "v4.2.4",
             "source": {
@@ -2177,6 +3385,67 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "time": "2019-01-24T22:05:03+00:00"
+        },
+        {
+            "name": "symfony/psr-http-message-bridge",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/psr-http-message-bridge.git",
+                "reference": "53c15a6a7918e6c2ab16ae370ea607fb40cab196"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/53c15a6a7918e6c2ab16ae370ea607fb40cab196",
+                "reference": "53c15a6a7918e6c2ab16ae370ea607fb40cab196",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0",
+                "psr/http-message": "^1.0",
+                "symfony/http-foundation": "^2.3.42 || ^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.4 || 4.0"
+            },
+            "suggest": {
+                "psr/http-factory-implementation": "To use the PSR-17 factory",
+                "psr/http-message-implementation": "To use the HttpFoundation factory",
+                "zendframework/zend-diactoros": "To use the Zend Diactoros factory"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\PsrHttpMessage\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "PSR HTTP message bridge",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr-7"
+            ],
+            "time": "2018-08-30T16:28:28+00:00"
         },
         {
             "name": "symfony/routing",
@@ -2452,17 +3721,92 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
-            "name": "vlucas/phpdotenv",
-            "version": "v3.3.2",
+            "name": "tymon/jwt-auth",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a"
+                "url": "https://github.com/tymondesigns/jwt-auth.git",
+                "reference": "f72b8eb0deff2c002d40a8b0411a546c28ebec98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
+                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/f72b8eb0deff2c002d40a8b0411a546c28ebec98",
+                "reference": "f72b8eb0deff2c002d40a8b0411a546c28ebec98",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^5.1",
+                "illuminate/contracts": "^5.1",
+                "illuminate/http": "^5.1",
+                "illuminate/support": "^5.1",
+                "lcobucci/jwt": "^3.2",
+                "namshi/jose": "^7.0",
+                "nesbot/carbon": "^1.0 || ^2.0",
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "cartalyst/sentinel": "2.0.*",
+                "illuminate/console": "^5.1",
+                "illuminate/database": "^5.1",
+                "illuminate/routing": "^5.1",
+                "mockery/mockery": ">=0.9.9",
+                "phpunit/phpunit": "~4.8 || ~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.0-dev"
+                },
+                "laravel": {
+                    "aliases": {
+                        "JWTAuth": "Tymon\\JWTAuth\\Facades\\JWTAuth",
+                        "JWTFactory": "Tymon\\JWTAuth\\Facades\\JWTFactory"
+                    },
+                    "providers": [
+                        "Tymon\\JWTAuth\\Providers\\LaravelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tymon\\JWTAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Tymon",
+                    "email": "tymon148@gmail.com",
+                    "homepage": "https://tymon.xyz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "JSON Web Token Authentication for Laravel and Lumen",
+            "homepage": "https://github.com/tymondesigns/jwt-auth",
+            "keywords": [
+                "Authentication",
+                "JSON Web Token",
+                "auth",
+                "jwt",
+                "laravel"
+            ],
+            "time": "2019-03-05T09:05:32+00:00"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v3.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/dbcc609971dd9b55f48b8008b553d79fd372ddde",
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +3845,71 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-01-30T10:43:17+00:00"
+            "time": "2019-03-06T09:39:45+00:00"
+        },
+        {
+            "name": "zendframework/zend-diactoros",
+            "version": "1.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-diactoros.git",
+                "reference": "20da13beba0dde8fb648be3cc19765732790f46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/20da13beba0dde8fb648be3cc19765732790f46e",
+                "reference": "20da13beba0dde8fb648be3cc19765732790f46e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^5.7.16 || ^6.0.8 || ^7.2.7",
+                "zendframework/zend-coding-standard": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev",
+                    "dev-develop": "1.9.x-dev",
+                    "dev-release-2.0": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/marshal_uri_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php"
+                ],
+                "psr-4": {
+                    "Zend\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://github.com/zendframework/zend-diactoros",
+            "keywords": [
+                "http",
+                "psr",
+                "psr-7"
+            ],
+            "time": "2018-09-05T19:29:37+00:00"
         }
     ],
     "packages-dev": [
@@ -2780,6 +4188,138 @@
             "time": "2016-01-20T08:20:44+00:00"
         },
         {
+            "name": "laracasts/generators",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Laravel-5-Generators-Extended.git",
+                "reference": "bf6aa824698516cb6e22f63f275e8f73bd25f56b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/bf6aa824698516cb6e22f63f275e8f73bd25f56b",
+                "reference": "bf6aa824698516cb6e22f63f275e8f73bd25f56b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Generators\\GeneratorsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laracasts\\Generators\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Extend Laravel 5's generators.",
+            "keywords": [
+                "generators",
+                "laravel"
+            ],
+            "time": "2017-11-14T20:43:22+00:00"
+        },
+        {
+            "name": "mnapoli/front-yaml",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mnapoli/FrontYAML.git",
+                "reference": "24070ace8b741247bb3161cbb38ecc541268b296"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mnapoli/FrontYAML/zipball/24070ace8b741247bb3161cbb38ecc541268b296",
+                "reference": "24070ace8b741247bb3161cbb38ecc541268b296",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "~1.0",
+                "php": ">=5.4.0",
+                "symfony/yaml": "~2.1|^3.0|^4.0"
+            },
+            "require-dev": {
+                "league/commonmark": "~0.7",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mni\\FrontYAML\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-10-29T19:29:55+00:00"
+        },
+        {
+            "name": "mnapoli/silly",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mnapoli/silly.git",
+                "reference": "5f7f34f4db75685e6fe7d652c12d9a7b6e8034d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mnapoli/silly/zipball/5f7f34f4db75685e6fe7d652c12d9a7b6e8034d6",
+                "reference": "5f7f34f4db75685e6fe7d652c12d9a7b6e8034d6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "php-di/invoker": "~2.0",
+                "psr/container": "^1.0",
+                "symfony/console": "~3.0|~4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.12",
+                "mnapoli/phpunit-easymock": "~1.0",
+                "phpunit/phpunit": "~6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Silly\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Silly CLI micro-framework based on Symfony Console",
+            "keywords": [
+                "PSR-11",
+                "cli",
+                "console",
+                "framework",
+                "micro-framework",
+                "silly"
+            ],
+            "time": "2018-12-26T21:17:30+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.2.2",
             "source": {
@@ -2843,6 +4383,169 @@
                 "testing"
             ],
             "time": "2019-02-13T09:37:52+00:00"
+        },
+        {
+            "name": "mpociot/documentarian",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/documentarian.git",
+                "reference": "477f67a975f4ee6a496455938b5558d9f2a3cceb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/documentarian/zipball/477f67a975f4ee6a496455938b5558d9f2a3cceb",
+                "reference": "477f67a975f4ee6a496455938b5558d9f2a3cceb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/view": "5.*",
+                "mnapoli/front-yaml": "^1.5",
+                "mnapoli/silly": "~1.0",
+                "php": ">=5.5.9",
+                "windwalker/renderer": "3.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "bin": [
+                "documentarian"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "includes/helpers.php"
+                ],
+                "psr-4": {
+                    "Mpociot\\Documentarian\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "time": "2016-08-26T21:14:19+00:00"
+        },
+        {
+            "name": "mpociot/laravel-apidoc-generator",
+            "version": "3.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/laravel-apidoc-generator.git",
+                "reference": "8d0bf3a7397ad352174505d8f0b2cbb5f37470a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/laravel-apidoc-generator/zipball/8d0bf3a7397ad352174505d8f0b2cbb5f37470a8",
+                "reference": "8d0bf3a7397ad352174505d8f0b2cbb5f37470a8",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "~1.8",
+                "illuminate/console": "5.5.* || 5.6.* || 5.7.* || 5.8.*",
+                "illuminate/routing": "5.5.* || 5.6.* || 5.7.* || 5.8.*",
+                "illuminate/support": "5.5.* || 5.6.* || 5.7.* || 5.8.*",
+                "mpociot/documentarian": "^0.2.0",
+                "mpociot/reflection-docblock": "^1.0.1",
+                "php": ">=7.0.0",
+                "ramsey/uuid": "^3.8"
+            },
+            "require-dev": {
+                "dingo/api": "2.0.0-alpha1",
+                "league/fractal": "^0.17.0",
+                "mockery/mockery": "^1.2.0",
+                "orchestra/testbench": "3.5.* || 3.6.* || 3.7.*",
+                "phpunit/phpunit": "^6.0.0 || ^7.4.0"
+            },
+            "suggest": {
+                "league/fractal": "Required for transformers support"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mpociot\\ApiDoc\\ApiDocGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mpociot\\ApiDoc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "Generate beautiful API documentation from your Laravel application",
+            "homepage": "http://github.com/mpociot/laravel-apidoc-generator",
+            "keywords": [
+                "api",
+                "documentation",
+                "laravel"
+            ],
+            "time": "2019-03-13T19:06:30+00:00"
+        },
+        {
+            "name": "mpociot/reflection-docblock",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/reflection-docblock.git",
+                "reference": "c8b2e2b1f5cebbb06e2b5ccbf2958f2198867587"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/reflection-docblock/zipball/c8b2e2b1f5cebbb06e2b5ccbf2958f2198867587",
+                "reference": "c8b2e2b1f5cebbb06e2b5ccbf2958f2198867587",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "dflydev/markdown": "~1.0",
+                "erusev/parsedown": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Mpociot": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "mike.vanriel@naenius.com"
+                }
+            ],
+            "time": "2016-06-20T20:53:12+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3057,6 +4760,49 @@
             ],
             "description": "Library for handling version information and constraints",
             "time": "2018-07-08T19:19:57+00:00"
+        },
+        {
+            "name": "php-di/invoker",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI/Invoker.git",
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "~1.0"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Invoker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generic and extensible callable invoker",
+            "homepage": "https://github.com/PHP-DI/Invoker",
+            "keywords": [
+                "callable",
+                "dependency",
+                "dependency-injection",
+                "injection",
+                "invoke",
+                "invoker"
+            ],
+            "time": "2017-03-20T19:28:22+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -4176,6 +5922,65 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v4.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "761fa560a937fd7686e5274ff89dcfa87a5047df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/761fa560a937fd7686e5274ff89dcfa87a5047df",
+                "reference": "761fa560a937fd7686e5274ff89dcfa87a5047df",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-02-23T15:17:42+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.1.0",
             "source": {
@@ -4265,6 +6070,112 @@
                 "validate"
             ],
             "time": "2018-12-25T11:19:39+00:00"
+        },
+        {
+            "name": "windwalker/renderer",
+            "version": "3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ventoviro/windwalker-renderer.git",
+                "reference": "9999d99c1adbc6b82e7a158701c8689efb817687"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ventoviro/windwalker-renderer/zipball/9999d99c1adbc6b82e7a158701c8689efb817687",
+                "reference": "9999d99c1adbc6b82e7a158701c8689efb817687",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "windwalker/structure": "~3.0"
+            },
+            "require-dev": {
+                "illuminate/view": "5.2.*",
+                "league/plates": "3.*",
+                "mustache/mustache": "2.*",
+                "twig/twig": "1.*",
+                "windwalker/dom": "~3.0",
+                "windwalker/filesystem": "~3.0",
+                "windwalker/test": "~3.0"
+            },
+            "suggest": {
+                "illuminate/view": "Install 5.* if you require Laravel Blade engine.",
+                "league/plates": "Install 3.* if you require Plates template engine.",
+                "mustache/mustache": "Install 2.* if you require Mustache engine.",
+                "twig/twig": "Install 1.* if you require Twig engine."
+            },
+            "type": "windwalker-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Windwalker\\Renderer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "description": "Windwalker Renderer package",
+            "homepage": "https://github.com/ventoviro/windwalker-renderer",
+            "keywords": [
+                "framework",
+                "renderer",
+                "windwalker"
+            ],
+            "time": "2019-01-13T08:39:07+00:00"
+        },
+        {
+            "name": "windwalker/structure",
+            "version": "3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ventoviro/windwalker-structure.git",
+                "reference": "c54090c14f1a9d1bd2a791d64d9aaceaa9440e90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ventoviro/windwalker-structure/zipball/c54090c14f1a9d1bd2a791d64d9aaceaa9440e90",
+                "reference": "c54090c14f1a9d1bd2a791d64d9aaceaa9440e90",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "symfony/yaml": "3.*",
+                "windwalker/test": "~3.0"
+            },
+            "suggest": {
+                "symfony/yaml": "Install 3.* if you require YAML support."
+            },
+            "type": "windwalker-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Windwalker\\Structure\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "description": "Windwalker Structure package",
+            "homepage": "https://github.com/ventoviro/windwalker-structure",
+            "keywords": [
+                "framework",
+                "structure",
+                "windwalker"
+            ],
+            "time": "2019-02-05T05:54:56+00:00"
         }
     ],
     "aliases": [],

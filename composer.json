@@ -10,14 +10,19 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "laravel/cashier": "^9.1",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/passport": "^7.2",
+        "laravel/tinker": "^1.0",
+        "tymon/jwt-auth": "1.0.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
+        "laracasts/generators": "^1.1",
         "mockery/mockery": "^1.0",
+        "mpociot/laravel-apidoc-generator": "^3.4",
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.5"
     },
@@ -57,6 +62,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
         ]
     }
 }
