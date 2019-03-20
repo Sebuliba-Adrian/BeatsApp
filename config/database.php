@@ -1,5 +1,5 @@
 <?php
-$DATABASE_URL = parse_url( 'postgres://mpkityovhonwmy:2957536a931db77e40f92f60f5d688e9b5b91a7c993f1b6040a68ea10063ea3a@ec2-23-23-173-30.compute-1.amazonaws.com:5432/d2pf1m2tspasns');
+$DATABASE_URL = parse_url( 'postgres://pphlrqjvzcqdux:58ffd693f9f86d389252e378c3cc061c450d99a05e81ce51ea27eb30b43dfe99@ec2-184-72-238-22.compute-1.amazonaws.com:5432/d15il8ktm73cg2');
 
 return [
 
