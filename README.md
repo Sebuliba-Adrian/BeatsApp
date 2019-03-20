@@ -47,11 +47,29 @@ php artisan migrate
 
 ## BeatsApp api Endpoints
 
-| Methood | Endpoint                        | Description                        | Returns                                   |
-|---------|---------------------------------|------------------------------------|-------------------------------------------|
-| GET     |    /api/albums                  | Get all albums                     | list of Albums                           |
-| POST    |    /api/albums                  | Create a new Album                 | Album                                     |
-| GET     |    /api/albums/{album}          | Get a Album                        | Album       , with Artist info and Genres |
-| PATCH   |    /api/albums/{album}          | Update an Album                    | Album       , with Artist info and Genres |
-| DELETE  |    /api/albums/{album}          | Delete an Album                    | Confirmation array                        |
-| GET     |    /api/albums/{album}/tracks   | Get all tracks for a certain album |   |
+| Method | Endpoint                                              | Description                  | Access          |
+|--------|-------------------------------------------------------|------------------------------|-----------------|
+| GET    | /api/albums                                           | gets all albums              | logged in users |
+| POST   | /api/albums                                           | creates new album            | artists/admin   |
+| GET    | /api/albums/{album}                                   | gets single album            | logged in users |
+| PATCH  | /api/albums/{album}                                   | updates album                | artists/admin   |
+| DELETE | /api/albums/{album}                                   | deletes album                | artists/admin   |
+| POST   | /api/albums/{album}/tracks                            | creates new track            | artists/admin   |
+| GET    | /api/albums/{album}/tracks                            | gets all album tracks        | logged in users |
+| DELETE | /api/albums/{album}/tracks/{track}                    | deletes track                | artists/admin   |
+| PATCH  | /api/albums/{album}/tracks/{track}                    | updates track                | artists/admin   |
+| GET    | /api/playlists                                        | get all playlists            | logged in users |
+| POST   | /api/playlists                                        | create playlist              | logged in users |
+| POST   | /api/playlists/{playlist}/tracks/{track}              | add track to playlist        | logged in users |
+| GET    | /api/playlists/{playlist}/tracks                      | get all tracks from playlist | logged in users |
+| POST   | /api/albums/{album}/tracks/{track}/comments           | comment on track             | logged in users |
+| GET    | albums/{album}/tracks/{track}/comments                | get all comments on track    | logged in users |
+| GET    | /api/albums/{album}/tracks/{track}/comments/{comment} | get single comment           | logged in users |
+| DELETE | /api/albums/{album}/tracks/{track}/comments/{comment} | delete comment               | logged in users |
+| PATCH  | /api/albums/{album}/tracks/{track}/comments/{comment} | update comment               | logged in users |
+| POST   | /api/genres                                           | create genre                 | artists/admin   |
+| GET    | /api/genres                                           | get genres                   | logged in users |
+| POST   | /api/register                                         | registers as user or artist  | all users       |
+| POST   | /api/login                                            | logins in as user or artist  | all users       |
+| POST   | /api/logout                                           | logs out logged in user      | logged in users |
+| GET    | /api/profile                                          | logged user profile          | logged in users |
