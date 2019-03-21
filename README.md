@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/Sebuliba-Adrian/BeatsApp.svg?branch=master)](https://travis-ci.org/Sebuliba-Adrian/BeatsApp)
 [![Coverage Status](https://coveralls.io/repos/github/Sebuliba-Adrian/BeatsApp/badge.svg)](https://coveralls.io/github/Sebuliba-Adrian/BeatsApp)
 # BeatsApp
-
+Find it here live [`beats`](https://beatix.herokuapp.com/)
 ## Requirements
 
 [`PHP 7.2`](http://php.net/manual/en/install.php) - This version of Laravel uses PHP 7.2
