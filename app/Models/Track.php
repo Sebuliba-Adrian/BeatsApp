@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+/**
+ * @property  file_url
+ */
 class Track extends Model
 {
     public static $rules = [
         "title" => "required|string|min:2|unique:tracks",
-        'file_url' => 'required|mimes:mpga,mp4,wav,avi,mkv,dvd',
+        'file_url' => 'mime:mpga,mp4,mov,ogg,wav,qt,dvd,mkv,',
     ];
 
     public function album()

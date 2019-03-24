@@ -7,17 +7,61 @@ use App\Models\Genre;
 use App\Models\Track;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Mockery;
 use Tests\TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class TrackControllerTest extends TestCase
 {
     /**
+     * Storage dependency to be injected to IoC Container
+     * @var
+     */
+    protected $storage;
+
+    /**
+     * File dependency to be injected to IoC Container
+     * @var
+     */
+    protected $file;
+
+    /**
+     * File System dependency to be injected to IoC Container
+     * @var
+     */
+    protected $fileSystem;
+
+    public function setUp():void
+    {
+        parent::setUp();
+
+        //Setup mocks
+        $this->storage = $this->mock('Illuminate\Contracts\Filesystem\Factory');
+        $this->file = $this->mock('Illuminate\Contracts\Filesystem');
+        $this->fileSystem = $this->mock('Illuminate\Filesystem\Filesystem');
+
+    }
+
+    /**
+     * Mock Container dependencies
+     *
+     * @param string $class Class to mock
+     *
+     * @return void
+     */
+    public function mock($class)
+    {
+        $mock = Mockery::mock($class);
+        $this->app->instance($class, $mock);
+        return $mock;
+    }
+
+    /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_user_can_store_a_track()
+    public function test_user_canot_store_invalidupload_track()
     {
         Storage::fake('public');
 
@@ -34,11 +78,10 @@ class TrackControllerTest extends TestCase
             "/api/albums/$album->id/tracks",
             [
                 "title" => "summer title",
-                "file_url" =>$file = UploadedFile::fake()->create('summer_time.mp3', 10),
+                "file_url" =>$file = UploadedFile::fake()->create('summer_time.mp7', 10),
                 ]
         );
-        $response->assertStatus(201);
-        $response->assertJsonStructure(["message","data"=>["title","file_url","album_id","updated_at","created_at","id"]]);
+        $response->assertStatus(500);
     }
 
 

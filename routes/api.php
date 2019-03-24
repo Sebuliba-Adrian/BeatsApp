@@ -53,10 +53,9 @@ Route::group(
         Route::patch('albums/{album}/tracks/{track}/comments/{comment}', 'CommentController@update');
     }
 );
-
-Route::middleware('auth:api')->get(
-    '/user',
+Route::get(
+    '/',
     function (Request $request) {
-        return $request->user();
+        return response()->json(["message"=>"Welcome to beats, a music store app"]);
     }
 );

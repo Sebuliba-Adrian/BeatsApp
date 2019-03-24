@@ -6,8 +6,10 @@ use App\Http\Resources\TrackResource;
 use App\Models\Album;
 use App\Models\Track;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
+use JD\Cloudder\Facades\Cloudder;
 
 class TrackController extends Controller
 {
@@ -30,14 +32,10 @@ class TrackController extends Controller
      */
     public function store(Request $request, Album $album)
     {
-        $this->validate($request, Track::$rules);
         $track = new Track($request->all());
         if ($request->hasFile('file_url')) {
-            $image = $request->file('file_url');
-            $name = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public', $name); // => storage/app/public/file.img
-            $file_url = URL::asset('storage/' . $name); // => http://example.com/stoage/file.img
-            $track->file_url = $file_url;
+            Cloudder::uploadVideo($request->file('file_url'));
+            $track->file_url =Cloudder::getResult()['url'];
         }
         $newAddedTrack = auth()->user()->addTrack($track, $album);
         return response()->json(
