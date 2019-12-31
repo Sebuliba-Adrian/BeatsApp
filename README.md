@@ -8,7 +8,7 @@
 
 [`Composer`](https://getcomposer.org/) - Composer is required for the libraries and dependencies
 
-##Clone 
+## Clone 
 ```git clone https://github.com/Sebuliba-Adrian/BeatsApp.git```
 
 ## Installation
